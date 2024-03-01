@@ -1,0 +1,79 @@
+  Future<dynamic> bottomSheet(BuildContext context,
+      {var key, int? indexOfEditing, int? currentCategory}) async {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, insetState) => Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: SingleChildScrollView(
+            child: Container(
+              height: 500,
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.all(10),
+              child: Form(
+                key: _formKey,
+                child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+                  TextFormField(
+                    controller: titleController,
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      labelText: "Title",
+                      isDense: false,
+                    ),
+                  ),
+                  TextFormField(
+                    controller: descriptionController,
+                    maxLines: null,
+                    expands: true,
+                    decoration: InputDecoration(
+                      labelText: "Description",
+                    ),
+                  ),
+                  Text("Category"),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(
+                        categories.length + 1,
+                        (index) => index == categories.length
+                            ? InkWell(
+                                onTap: () {},
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 15,
+                                    vertical: 10,
+                                  ),
+                                  child: Text("Add Category"),
+                                ),
+                              )
+                            : Padding(
+                              padding: const EdgeInsets.only(right: 10),
+                              child: InkWell(
+                                  onTap: () {},
+                                  child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 15,
+                                      vertical: 10,
+                                    ),
+                                    child: Text(categories[index].toString()),
+                                  ),
+                                ),
+                            ),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      ElevatedButton(onPressed: () {}, child: Text("Cancel")),
+                      ElevatedButton(onPressed: () {}, child: Text("Edit/add"))
+                    ],
+                  )
+                ]),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
