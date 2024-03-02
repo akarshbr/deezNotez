@@ -11,6 +11,7 @@ class NotesOpenedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Constants.notesWidgetColor,
       appBar: AppBar(
@@ -22,8 +23,22 @@ class NotesOpenedScreen extends StatelessWidget {
         surfaceTintColor: Constants.notesWidgetColor,
         backgroundColor: Constants.notesWidgetColor,
       ),
-      body: Column(
-        children: [Text(title), Text(description)],
+      body: Padding(
+        padding: EdgeInsets.all(size.width * .08),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: Constants.titleFontSizeNotesOpened,
+                  fontWeight: Constants.titleFontWeightNotesOpened),
+            ),
+            SizedBox(height: size.height * .02),
+            Text(description,
+                style: const TextStyle(fontSize: Constants.descriptionFontSizeNotesOpened))
+          ],
+        ),
       ),
     );
   }

@@ -28,4 +28,9 @@ class Constants {
   static  Color deleteNotesIconColor = Colors.red.shade300;
   static const Color shareNotesIconColor = Colors.black;
   static const double descriptionFontSize = 15;
+
+  ///notes opened screen
+  static const double titleFontSizeNotesOpened = 30;
+  static const FontWeight titleFontWeightNotesOpened = FontWeight.bold;
+  static const double descriptionFontSizeNotesOpened = 30;
 }
