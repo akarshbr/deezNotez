@@ -27,7 +27,12 @@ class AddCategoryDialog extends StatelessWidget {
             border: InputBorder.none,
             focusedBorder: InputBorder.none),
       ),
-      actions: [Center(child: ElevatedButton(onPressed: () {}, child: Text("Add")))],
+      actions: [Center(child: ElevatedButton(onPressed: () {
+        catController.addUserCategory(categoryController.text);
+        categoryController.clear();
+        Navigator.pop(context);
+        fetchData();
+      }, child: Text("Add")))],
     );
   }
 }
