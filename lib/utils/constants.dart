@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class Constants {
   ///global
+  static const double appBarTitleFontSize = 20;
+  static const FontWeight appBarTitleFontWeight = FontWeight.bold;
 
   ///home screen
   static const double categoryFontSize = 20;

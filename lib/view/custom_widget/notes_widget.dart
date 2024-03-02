@@ -1,5 +1,6 @@
 import 'package:deeznotes/controller/home_screen_controller.dart';
 import 'package:deeznotes/utils/constants.dart';
+import 'package:deeznotes/view/notes_opened_screen/notes_opened_screen.dart';
 import 'package:flutter/material.dart';
 
 class NotesWidget extends StatelessWidget {
@@ -23,7 +24,13 @@ class NotesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    NotesOpenedScreen(category: category, title: title, description: description)));
+      },
       child: Container(
         height: size.height * .2,
         width: size.width * .9,
